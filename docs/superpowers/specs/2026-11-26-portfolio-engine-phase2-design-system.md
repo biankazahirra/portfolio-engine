@@ -202,7 +202,8 @@ Mobile **bukan** layout web yang diperkecil. Di bawah 768px engine memakai hiera
 
 - CSS-only. Tanpa Framer Motion (disetujui owner di Phase 1).
 - Transisi hover/focus: `150ms ease`.
-- Hero fade-in sekali saat load: `400ms ease-out`; tidak ada animasi scroll-trigger.
+- Hero stagger fade-in saat load: `550ms ease-out`, delay 40–270ms.
+- Reveal saat scroll memakai `animation-timeline: view()` di dalam `@supports`; fallback tanpa animasi untuk browser yang tidak mendukung. Tidak ada scroll-jacking.
 - `@media (prefers-reduced-motion: reduce)`: semua transisi dan animasi dimatikan.
 - `scroll-behavior: smooth` dengan pengecualian reduced-motion.
 - `scroll-margin-top` pada section = tinggi header sticky + 16px.

@@ -69,7 +69,8 @@ Kesimpulan: engine menerima profil kedua tanpa perubahan komponen shared.
 | Minor | Uji keyboard Tab untuk skip link gagal dieksekusi tool browser | **Tertunda** — keberadaan dan target skip link terverifikasi; Lighthouse a11y 1.00 |
 | Limitation | Portrait belum ada | Menunggu aset dari owner |
 | Limitation | CV ditahan karena memuat nomor telepon | Keputusan owner |
-| Limitation | Master spec memuat nomor telepon | Push ke repo publik belum disetujui |
+| Minor | Reveal scroll dengan `opacity` membuat Lighthouse a11y turun ke 0.96 karena teks saat audit masih transparan | **Diperbaiki** — reveal memakai `transform` saja; Lighthouse kembali 1.00 |
+| Limitation | Master spec memuat nomor telepon | Sudah diredaksi sebelum push |
 
 ## 6. Persetujuan
 

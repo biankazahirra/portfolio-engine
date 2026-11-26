@@ -59,4 +59,12 @@ Mobile <768px bukan desktop yang diperkecil:
 
 ## Motion
 
-CSS-only. Transisi 150ms, hero fade 400ms saat load. `prefers-reduced-motion: reduce` mematikan semua animasi. Smooth scroll dengan `scroll-margin-top` setinggi header + 16px.
+CSS-only, tanpa library animasi. Prinsip: gerak hanya untuk memandu perhatian, memakai `opacity` dan `transform` agar tidak menggeser layout.
+
+- Hero: stagger fade-up 550ms dengan delay 40–270ms untuk eyebrow, judul, ringkasan, CTA, dan portrait.
+- Section: reveal naik 500ms saat elemen masuk viewport, via `animation-timeline: view()` di dalam `@supports`. Memakai `transform` saja tanpa `opacity` agar teks tetap memenuhi kontras saat diaudit. Browser yang tidak mendukung menampilkan konten tanpa animasi.
+- Gold rule tumbuh dari kiri 400ms.
+- Hover/focus: underline nav 180ms, panah tombol 150ms, underline email 220ms, portrait 300ms.
+- Dua entri berturut-turut diberi `animation-range` sedikit berbeda sebagai stagger ringan.
+- `prefers-reduced-motion: reduce` mematikan semua animasi dan transisi.
+- Smooth scroll dengan `scroll-margin-top` setinggi header + 16px.
