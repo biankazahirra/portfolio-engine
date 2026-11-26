@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import type { ReactNode } from "react";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { portfolioConfig } from "@/config/portfolio.config";
 import "./globals.css";
 
@@ -31,7 +32,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${dmSans.variable} ${plexMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

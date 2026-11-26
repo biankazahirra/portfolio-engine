@@ -220,6 +220,7 @@ approved, compatible setup.
   Tailwind CSS           Styling
   GSAP + ScrollTrigger   Word-by-word title reveal
   Motion                 Card entrance and hover
+  Lenis                  Smooth scroll
   Lucide React           Icons
   Zod                    Runtime configuration validation
   Vercel                 Hosting and deployment

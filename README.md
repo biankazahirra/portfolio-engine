@@ -29,7 +29,7 @@ Node.js 20.9 atau lebih baru diperlukan (Next.js 16).
 
 Next.js App Router · React · TypeScript · Tailwind CSS 4 · Zod · Lucide React.
 
-Tanpa backend, database, auth, CMS, atau dashboard. CSS untuk transisi umum, GSAP + ScrollTrigger untuk judul per kata, Motion untuk entrance dan hover card.
+Tanpa backend, database, auth, CMS, atau dashboard. CSS untuk transisi umum, Lenis untuk smooth scroll, GSAP + ScrollTrigger untuk judul per kata, Motion untuk entrance dan hover card.
 
 ## Struktur singkat
 

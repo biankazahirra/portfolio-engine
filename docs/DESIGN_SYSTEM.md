@@ -72,4 +72,4 @@ CSS untuk transisi dan GSAP + ScrollTrigger untuk judul. Prinsip: gerak hanya un
 - Hover/focus: underline nav 180ms, panah tombol 150ms, underline email 220ms, portrait 300ms.
 - Dua entri berturut-turut diberi `animation-range` sedikit berbeda sebagai stagger ringan.
 - `prefers-reduced-motion: reduce` mematikan semua animasi dan transisi.
-- Smooth scroll dengan `scroll-margin-top` setinggi header + 16px.
+- Smooth scroll memakai Lenis (durasi 1.05s) dan disinkronkan dengan GSAP ScrollTrigger lewat ticker. Anchor link ditangani Lenis (`anchors: true`), yang menghormati `scroll-margin-top` agar judul tidak tertutup header.
