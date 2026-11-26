@@ -766,11 +766,6 @@
       animation-range: entry 10% cover 30%;
     }
 
-    .timeline-item,
-    .expertise-item,
-    .education-block,
-    .org-role,
-    .cert-row,
     .hero-meta,
     .footer-inner {
       animation: reveal-up 500ms ease-out both;

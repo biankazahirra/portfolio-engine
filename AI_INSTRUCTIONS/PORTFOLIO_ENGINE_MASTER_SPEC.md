@@ -219,6 +219,7 @@ approved, compatible setup.
   TypeScript             Type safety
   Tailwind CSS           Styling
   GSAP + ScrollTrigger   Word-by-word title reveal
+  Motion                 Card entrance and hover
   Lucide React           Icons
   Zod                    Runtime configuration validation
   Vercel                 Hosting and deployment

@@ -61,8 +61,10 @@ Mobile <768px bukan desktop yang diperkecil:
 
 CSS untuk transisi dan GSAP + ScrollTrigger untuk judul. Prinsip: gerak hanya untuk memandu perhatian, memakai `opacity` dan `transform` agar tidak menggeser layout.
 
-- Judul H1/H2 dirender per kata oleh `AnimatedTitle`. ScrollTrigger memicu reveal saat judul masuk 88% viewport, dengan stagger 80ms per kata dan durasi 550ms. `prefers-reduced-motion` menonaktifkan animasi ini.
-- Hero, section, dan komponen lain tetap memakai transisi CSS.
+- Judul H1/H2 dirender per kata oleh `AnimatedTitle`. ScrollTrigger memicu reveal saat judul masuk 88% viewport, dengan stagger 80ms per kata dan durasi 550ms.
+- Card/entri (timeline, expertise, education, organization, certification) memakai `MotionItem` dari Motion: masuk naik 16px saat masuk viewport, hover naik 3px, durasi 450ms, stagger 50ms per entri maksimal 300ms.
+- Keduanya memakai `transform` saja, tanpa `opacity`, agar kontras teks tetap penuh. `prefers-reduced-motion` menonaktifkan keduanya.
+- Hero, navigasi, tombol, dan tautan tetap memakai transisi CSS.
 
 - Hero: stagger fade-up 550ms dengan delay 40–270ms untuk eyebrow, judul, ringkasan, CTA, dan portrait.
 - Section: reveal naik 500ms saat elemen masuk viewport, via `animation-timeline: view()` di dalam `@supports`. Memakai `transform` saja tanpa `opacity` agar teks tetap memenuhi kontras saat diaudit. Browser yang tidak mendukung menampilkan konten tanpa animasi.

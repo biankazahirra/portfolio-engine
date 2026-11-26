@@ -1,4 +1,5 @@
 import { PageContainer } from "../layout/page-container";
+import { MotionItem } from "../shared/motion-item";
 import { SectionHeading } from "../shared/section-heading";
 import type { Experience } from "@/types/experience";
 import type { SectionFrameProps } from "@/types/section";
@@ -13,8 +14,13 @@ export function ExperienceSection({ index, label, heading, items }: ExperienceSe
       <PageContainer>
         <SectionHeading index={index} label={label} title={heading} />
         <div className="timeline">
-          {items.map((item) => (
-            <article key={`${item.organization}-${item.period}`} className="timeline-item">
+          {items.map((item, index) => (
+            <MotionItem
+              key={`${item.organization}-${item.period}`}
+              as="article"
+              className="timeline-item"
+              index={index}
+            >
               <p className="timeline-period">{item.period}</p>
               <div className="timeline-content">
                 <h3 className="timeline-role">{item.position}</h3>
@@ -26,7 +32,7 @@ export function ExperienceSection({ index, label, heading, items }: ExperienceSe
                   ))}
                 </ul>
               </div>
-            </article>
+            </MotionItem>
           ))}
         </div>
       </PageContainer>
