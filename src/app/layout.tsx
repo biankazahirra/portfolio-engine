@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans, IBM_Plex_Mono, Playfair_Display } from "next/font/google";
+import { DM_Sans, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import { portfolioConfig } from "@/config/portfolio.config";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${dmSans.variable} ${plexMono.variable}`}>
       <body>{children}</body>
     </html>
   );

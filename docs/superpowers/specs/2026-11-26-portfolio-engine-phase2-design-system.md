@@ -45,13 +45,13 @@ Alias semantik:
 
 ## 3. Tipografi
 
-Font dimuat via `next/font/google`: Playfair Display, DM Sans, IBM Plex Mono.
+Font dimuat via `next/font/google`: Fraunces, DM Sans, IBM Plex Mono.
 
 | Peran | Font | Ukuran (fluid) | Line-height | Tracking |
 |---|---|---|---|---|
-| Display / hero H1 | Playfair Display 500 | `clamp(2.75rem, 6vw, 4.5rem)` | 1.05 | `-0.02em` |
-| Section H2 | Playfair Display 500 | `clamp(1.875rem, 3.5vw, 2.75rem)` | 1.15 | `-0.01em` |
-| Entry H3 | Playfair Display 500 | `clamp(1.25rem, 2vw, 1.5rem)` | 1.25 | 0 |
+| Display / hero H1 | Fraunces 500 | `clamp(2.75rem, 6vw, 4.5rem)` | 1.05 | `-0.02em` |
+| Section H2 | Fraunces 500 | `clamp(1.875rem, 3.5vw, 2.75rem)` | 1.15 | `-0.01em` |
+| Entry H3 | Fraunces 500 | `clamp(1.25rem, 2vw, 1.5rem)` | 1.25 | 0 |
 | Eyebrow (mono) | IBM Plex Mono 500 | `0.75rem` | 1.4 | `0.14em`, uppercase |
 | Body | DM Sans 400 | `1rem` | 1.7 | 0 |
 | Lead | DM Sans 400 | `clamp(1.0625rem, 1.6vw, 1.25rem)` | 1.6 | 0 |
@@ -111,7 +111,7 @@ Eyebrow dan nomor berasal dari konfigurasi section, bukan hardcode per-orang. No
 
 ### Navigation
 - Header sticky di atas, background ivory solid, border bawah 1px gray.
-- Kiri: `profile.name` dalam Playfair 1.125rem (dari props, bukan hardcode).
+- Kiri: `profile.name` dalam Fraunces 1.125rem (dari props, bukan hardcode).
 - Kanan: tautan anchor ke section aktif. Label: About, Experience, Expertise, Education, Organizations, Certifications, Contact.
 - Hero tidak punya tautan tersendiri; logo/name menuju `#top`.
 - Mobile (<768px): tautan disembunyikan, tombol toggle menu. Menu vertikal di bawah header, ditutup saat tautan diklik atau Esc ditekan.
@@ -139,7 +139,7 @@ Mobile: satu kolom, teks lalu portrait, CTA full-width bertumpuk. Portrait tetap
 
 ### Expertise
 - Daftar area dalam grid 2 kolom di desktop, 1 kolom di mobile.
-- Tiap item: indeks mono gold `01`, garis horizontal, nama area Playfair 1.25rem.
+- Tiap item: indeks mono gold `01`, garis horizontal, nama area Fraunces 1.25rem.
 - **Tanpa persentase, progress bar, atau rating** sesuai larangan spec.
 
 ### Education
@@ -156,7 +156,7 @@ Mobile: satu kolom, teks lalu portrait, CTA full-width bertumpuk. Portrait tetap
 
 ### Contact
 - H2 besar dengan serif, satu paragraf pendek.
-- Email sebagai tautan `mailto:` dengan gaya Playfair 1.5rem dan underline gold 1px saat hover.
+- Email sebagai tautan `mailto:` dengan gaya Fraunces 1.5rem dan underline gold 1px saat hover.
 - LinkedIn dan portfolio reference sebagai tautan teks mono.
 - **Nomor telepon tidak ditampilkan.**
 

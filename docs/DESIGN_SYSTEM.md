@@ -19,7 +19,7 @@ Gold tidak dipakai untuk teks tubuh di atas ivory. Teks di atas forest memakai i
 
 ## Tipografi
 
-- Headings: Playfair Display.
+- Headings: Fraunces (serif hangat, profesional, tidak kaku).
 - Body: DM Sans.
 - Metadata: IBM Plex Mono.
 

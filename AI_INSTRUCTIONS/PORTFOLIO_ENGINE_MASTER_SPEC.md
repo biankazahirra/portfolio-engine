@@ -141,7 +141,7 @@ Initial theme:
 `#183C32` - Muted Gold: `#B59A64` - Charcoal: `#292A28` - Soft Gray:
 `#E5E1D8` - White: `#FFFFFF`
 
-Typography: - Headings: Playfair Display - Body: DM Sans - Numerical
+Typography: - Headings: Fraunces - Body: DM Sans - Numerical
 metadata: IBM Plex Mono
 
 The initial theme is a pilot theme, not a permanent limitation of the
@@ -821,7 +821,7 @@ Define the initial Editorial Template and Accounting Editorial theme.
 
 -   Premium editorial appearance.
 -   Warm ivory, forest green, muted gold, charcoal.
--   Playfair Display, DM Sans, IBM Plex Mono.
+-   Fraunces, DM Sans, IBM Plex Mono.
 -   Strong readability.
 -   Generous whitespace.
 -   Subtle ledger-inspired details.
@@ -1117,7 +1117,7 @@ Use:
 
 Typography:
 
--   Playfair Display for headings.
+-   Fraunces for headings.
 -   DM Sans for body text.
 -   IBM Plex Mono for numerical metadata.
 
