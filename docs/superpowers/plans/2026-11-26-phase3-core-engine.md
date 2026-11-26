@@ -20,7 +20,7 @@
 - Konten pribadi tidak boleh di komponen shared.
 - Nomor telepon tidak masuk file mana pun.
 - Dependency hanya: Next, React, TypeScript, Tailwind, Zod, Lucide.
-- `framer-motion` tidak dipakai. Motion CSS-only.
+- `framer-motion` tidak dipakai. CSS untuk transisi umum; GSAP + ScrollTrigger untuk judul per kata (ditambahkan kemudian atas permintaan owner).
 - Client Component hanya untuk toggle navigasi mobile.
 
 ## Review Focus

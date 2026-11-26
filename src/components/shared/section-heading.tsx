@@ -1,3 +1,5 @@
+import { AnimatedTitle } from "./animated-title";
+
 interface SectionHeadingProps {
   index: number;
   label: string;
@@ -11,7 +13,7 @@ export function SectionHeading({ index, label, title }: SectionHeadingProps) {
       <p className="eyebrow">
         {String(index).padStart(2, "0")} / {label}
       </p>
-      <h2 className="section-title">{title}</h2>
+      <AnimatedTitle text={title} className="section-title" />
     </header>
   );
 }

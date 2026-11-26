@@ -29,7 +29,7 @@ Node.js 20.9 atau lebih baru diperlukan (Next.js 16).
 
 Next.js App Router · React · TypeScript · Tailwind CSS 4 · Zod · Lucide React.
 
-Tanpa backend, database, auth, CMS, atau dashboard. Motion memakai CSS, bukan Framer Motion.
+Tanpa backend, database, auth, CMS, atau dashboard. Motion memakai CSS untuk transisi dan GSAP + ScrollTrigger untuk reveal judul per kata.
 
 ## Struktur singkat
 

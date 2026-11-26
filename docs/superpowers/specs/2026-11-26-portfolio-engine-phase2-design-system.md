@@ -200,7 +200,7 @@ Mobile **bukan** layout web yang diperkecil. Di bawah 768px engine memakai hiera
 
 ## 9. Interaksi & motion
 
-- CSS-only. Tanpa Framer Motion (disetujui owner di Phase 1).
+- CSS untuk transisi umum; GSAP + ScrollTrigger untuk reveal judul per kata (diminta owner setelah Phase 6). Framer Motion tetap tidak dipakai.
 - Transisi hover/focus: `150ms ease`.
 - Hero stagger fade-in saat load: `550ms ease-out`, delay 40–270ms.
 - Reveal saat scroll memakai `animation-timeline: view()` di dalam `@supports`; fallback tanpa animasi untuk browser yang tidak mendukung. Tidak ada scroll-jacking.

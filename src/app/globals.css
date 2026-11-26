@@ -340,7 +340,6 @@
   }
 
   .hero-copy > .eyebrow,
-  .hero-title,
   .hero-summary,
   .hero-actions,
   .portrait-frame {
@@ -349,10 +348,6 @@
 
   .hero-copy > .eyebrow {
     animation-delay: 40ms;
-  }
-
-  .hero-title {
-    animation-delay: 110ms;
   }
 
   .hero-summary {
@@ -771,7 +766,6 @@
       animation-range: entry 10% cover 30%;
     }
 
-    .section-header,
     .timeline-item,
     .expertise-item,
     .education-block,

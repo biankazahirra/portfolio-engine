@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PageContainer } from "../layout/page-container";
 import { Button } from "../shared/button";
+import { AnimatedTitle } from "../shared/animated-title";
 import { Metadata } from "../shared/metadata";
 import type { Profile } from "@/types/profile";
 
@@ -17,7 +18,11 @@ export function HeroSection({ profile, primaryCtaHref, primaryCtaLabel }: HeroSe
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">{profile.title}</p>
-            <h1 className="hero-title">{profile.headline ?? profile.title}</h1>
+            <AnimatedTitle
+              text={profile.headline ?? profile.title}
+              as="h1"
+              className="hero-title"
+            />
             {profile.summary && <p className="hero-summary">{profile.summary}</p>}
             <div className="hero-actions">
               <Button href={primaryCtaHref}>{primaryCtaLabel}</Button>

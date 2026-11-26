@@ -218,7 +218,7 @@ approved, compatible setup.
   Next.js (App Router)   Application framework
   TypeScript             Type safety
   Tailwind CSS           Styling
-  Framer Motion          Subtle motion and transitions
+  GSAP + ScrollTrigger   Word-by-word title reveal
   Lucide React           Icons
   Zod                    Runtime configuration validation
   Vercel                 Hosting and deployment
@@ -1142,7 +1142,7 @@ If starting from scratch, use:
 -   Next.js App Router
 -   TypeScript
 -   Tailwind CSS
--   Framer Motion
+-   GSAP + ScrollTrigger
 -   Lucide React
 -   Zod
 -   Vercel deployment
