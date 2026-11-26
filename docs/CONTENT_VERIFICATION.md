@@ -43,7 +43,7 @@ Teks CV diekstrak dengan utilitas sementara di luar repo (`pdf-parse`), lalu set
 
 ## Placeholder tersisa
 
-1. **Portrait** — belum ada aset. Hero menampilkan placeholder "Portrait pending approval".
+1. **Portrait** — sudah dipasang di `public/images/profile/fidela.jpg` dari aset yang diberikan owner. Placeholder tidak lagi dipakai.
 2. **CV download** — file sudah diberikan, tapi **sengaja tidak dipasang** ke `public/` karena mengandung nomor telepon. Owner memilih menahan publikasi. Tombol download tidak dirender sampai ada izin tertulis.
 
 ## Status build

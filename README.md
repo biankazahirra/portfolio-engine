@@ -9,8 +9,9 @@ Pilot pertama: **Fidela Andina — Accounting & Finance Portfolio**.
 ## Status
 
 - Arsitektur, theme, template, dan komponen reusable: siap.
-- Pilot Fidela: tampil lengkap, kecuali portrait dan CV yang sengaja ditahan.
-- Belum di-push ke GitHub dan belum di-deploy. Butuh izin terpisah.
+- Pilot Fidela: tampil lengkap, kecuali CV yang sengaja ditahan.
+- Live: `https://fidelaandina.vercel.app`.
+- Sudah di-push ke GitHub dan di-deploy ke Vercel.
 
 ## Menjalankan
 
@@ -64,7 +65,6 @@ Konten pribadi tidak pernah ditaruh di komponen shared. Warna, font, dan spacing
 
 ## Batasan diketahui
 
-- Portrait belum ada; hero menampilkan placeholder.
 - CV sengaja tidak dipasang karena memuat nomor telepon; menunggu izin tertulis.
 - Master spec `AI_INSTRUCTIONS/PORTFOLIO_ENGINE_MASTER_SPEC.md` masih memuat nomor telepon. Perlu disunting sebelum repo publik di-push.
 - Satu theme (`accounting-editorial`), satu template (`editorial`).

@@ -10,4 +10,6 @@ export const profile: Profile = {
   headline: "Turning Financial Data Into Meaningful Insights.",
   summary:
     "An Accounting graduate with hands-on experience across auditing, taxation, financial analysis, and finance operations.",
+  portrait: "/images/profile/fidela.jpg",
+  portraitAlt: "Fidela Andina in graduation attire",
 };
