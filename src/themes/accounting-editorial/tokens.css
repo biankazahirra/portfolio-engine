@@ -1,0 +1,55 @@
+:root {
+  --color-ivory: #F5F1E8;
+  --color-forest: #183C32;
+  --color-gold: #B59A64;
+  --color-charcoal: #292A28;
+  --color-gray: #E5E1D8;
+  --color-white: #FFFFFF;
+
+  --color-bg: var(--color-ivory);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-gray);
+  --color-text: var(--color-charcoal);
+  --color-heading: var(--color-forest);
+  --color-accent: var(--color-gold);
+  --color-border: var(--color-gray);
+  --color-on-dark: var(--color-ivory);
+
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-dm-sans), Arial, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --radius: 2px;
+  --gutter: 64px;
+  --container-content: 1120px;
+  --container-wide: 1280px;
+  --container-reading: 68ch;
+  --section-y: 96px;
+  --header-height: 72px;
+  --rule-width: 32px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --gutter: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 24px;
+    --section-y: 64px;
+    --header-height: 64px;
+  }
+}
