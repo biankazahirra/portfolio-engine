@@ -127,7 +127,7 @@ Verifikasi ulang iframe 390×844: title reveal `opacity 1`, card `translateY(16p
 | Tujuh chapter berurutan | Benar — Transaction → Journal → Audit → Ledger → Oversight → Reporting → Closing, lengkap dengan `Details` |
 | Teks nyata di HTML | Benar — judul, metadata, takeaway, dan seluruh bullet ada di DOM; scene SVG `aria-hidden` |
 | Vine + chapter dots | Benar — path terhubung ke progres story; tujuh dot dengan `aria-current` mengikuti chapter aktif |
-| Pinning | Benar — `pinSpacing` aktif, desktop `+=125%`, mobile `+=100%`; chapter dipasang malas saat masuk viewport |
+| Pinning | Benar — desktop `+=125%` dengan `pinSpacing`; mobile sengaja tanpa pin agar tidak ada area kosong dan tetap ringan; chapter dipasang malas saat mendekat viewport |
 | Skip story | Benar — `pins` 7 → 0, hash `#at-a-glance`, `top: 92px`, at-a-glance berisi 6 kartu |
 | Mobile 390×844 | Benar — tanpa 3D (SVG statis), progress bar atas, dot sticky horizontal, overflow 0, menu berisi Skip story |
 | Reduced motion | Benar di kode — controller tidak berjalan, vine tampil penuh, tanpa pin/Lenis/canvas |

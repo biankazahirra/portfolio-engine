@@ -70,17 +70,27 @@ export function StoryController({ chapters }: { chapters: Chapter[] }) {
           const parts = chapter.querySelectorAll<SVGElement>("[data-part]");
 
           const timeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: chapter,
-              start: "top top",
-              end: mobile ? "+=100%" : "+=125%",
-              pin: true,
-              pinSpacing: true,
-              scrub: 0.6,
-              invalidateOnRefresh: true,
-              onEnter: () => activate(index),
-              onEnterBack: () => activate(index),
-            },
+            scrollTrigger: mobile
+              ? {
+                  trigger: chapter,
+                  start: "top 78%",
+                  end: "bottom 45%",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  onEnter: () => activate(index),
+                  onEnterBack: () => activate(index),
+                }
+              : {
+                  trigger: chapter,
+                  start: "top top",
+                  end: "+=125%",
+                  pin: true,
+                  pinSpacing: true,
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  onEnter: () => activate(index),
+                  onEnterBack: () => activate(index),
+                },
           });
 
           if (copy) {
@@ -109,7 +119,7 @@ export function StoryController({ chapters }: { chapters: Chapter[] }) {
                 }
               }
             },
-            { rootMargin: "0px", threshold: 0.01 },
+            { rootMargin: "120% 0px 120% 0px", threshold: 0 },
           );
 
           chapterElements.forEach((chapter) => observer.observe(chapter));
