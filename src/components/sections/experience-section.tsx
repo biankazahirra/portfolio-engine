@@ -1,5 +1,6 @@
+import { GrowingVine } from "../motion/growing-vine";
+import { VineFlower } from "../motion/vine-flower";
 import { PageContainer } from "../layout/page-container";
-import { MotionItem } from "../shared/motion-item";
 import { SectionHeading } from "../shared/section-heading";
 import type { Experience } from "@/types/experience";
 import type { SectionFrameProps } from "@/types/section";
@@ -13,26 +14,38 @@ export function ExperienceSection({ index, label, heading, items }: ExperienceSe
     <section id="experience" className="section">
       <PageContainer>
         <SectionHeading index={index} label={label} title={heading} />
-        <div className="timeline">
-          {items.map((item, index) => (
-            <MotionItem
+        <div className="journal">
+          <GrowingVine />
+          {items.map((item) => (
+            <details
               key={`${item.organization}-${item.period}`}
-              as="article"
-              className="timeline-item"
-              index={index}
+              className="journal-item"
             >
-              <p className="timeline-period">{item.period}</p>
-              <div className="timeline-content">
-                <h3 className="timeline-role">{item.position}</h3>
-                <p className="timeline-org">{item.organization}</p>
-                {item.location && <p className="metadata">{item.location}</p>}
+              <summary className="journal-summary">
+                <span className="journal-flower">
+                  <VineFlower />
+                </span>
+                <span className="journal-period">{item.period}</span>
+                <span className="journal-main">
+                  <span className="journal-role">{item.position}</span>
+                  <span className="journal-org">
+                    {item.organization}
+                    {item.location ? ` · ${item.location}` : ""}
+                  </span>
+                  <span className="journal-summary-line">{item.summary}</span>
+                </span>
+                <span className="journal-toggle" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <div className="journal-body">
                 <ul className="bullet-list">
                   {item.responsibilities.map((responsibility) => (
                     <li key={responsibility}>{responsibility}</li>
                   ))}
                 </ul>
               </div>
-            </MotionItem>
+            </details>
           ))}
         </div>
       </PageContainer>

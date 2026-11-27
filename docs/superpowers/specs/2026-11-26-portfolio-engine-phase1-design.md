@@ -164,7 +164,7 @@ Nomor telepon **tidak ada di model**. Jika izin publishing datang, baru ditambah
 
 Token CSS: `--color-ivory`, `--color-forest`, `--color-gold`, `--color-charcoal`, `--color-gray`, `--color-white`; font `--font-heading`, `--font-body`, `--font-mono`; spacing/radius/shadow/container-width/section-spacing.
 
-Font dimuat di `layout.tsx` lewat `next/font/google`: Fraunces, DM Sans, IBM Plex Mono. Tidak ada dependency font tambahan.
+Font dimuat di `layout.tsx` lewat `next/font/google`: Fraunces, Inter, IBM Plex Mono. Tidak ada dependency font tambahan.
 
 ## 7. Template responsibilities
 

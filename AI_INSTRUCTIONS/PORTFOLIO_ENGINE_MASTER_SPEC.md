@@ -141,7 +141,7 @@ Initial theme:
 `#183C32` - Muted Gold: `#B59A64` - Charcoal: `#292A28` - Soft Gray:
 `#E5E1D8` - White: `#FFFFFF`
 
-Typography: - Headings: Fraunces - Body: DM Sans - Numerical
+Typography: - Headings: Fraunces - Body: Inter - Numerical
 metadata: IBM Plex Mono
 
 The initial theme is a pilot theme, not a permanent limitation of the
@@ -218,9 +218,11 @@ approved, compatible setup.
   Next.js (App Router)   Application framework
   TypeScript             Type safety
   Tailwind CSS           Styling
-  GSAP + ScrollTrigger   Word-by-word title reveal
+  GSAP + ScrollTrigger   Word-by-word title reveal, scroll vine
   Motion                 Card entrance and hover
   Lenis                  Smooth scroll
+  Three.js               Lazy 3D hero flower (desktop only)
+  Canvas 2D              Falling petals
   Lucide React           Icons
   Zod                    Runtime configuration validation
   Vercel                 Hosting and deployment
@@ -823,7 +825,7 @@ Define the initial Editorial Template and Accounting Editorial theme.
 
 -   Premium editorial appearance.
 -   Warm ivory, forest green, muted gold, charcoal.
--   Fraunces, DM Sans, IBM Plex Mono.
+-   Fraunces, Inter, IBM Plex Mono.
 -   Strong readability.
 -   Generous whitespace.
 -   Subtle ledger-inspired details.
@@ -1120,7 +1122,7 @@ Use:
 Typography:
 
 -   Fraunces for headings.
--   DM Sans for body text.
+-   Inter for body text.
 -   IBM Plex Mono for numerical metadata.
 
 Design characteristics:
@@ -1145,6 +1147,8 @@ If starting from scratch, use:
 -   TypeScript
 -   Tailwind CSS
 -   GSAP + ScrollTrigger
+-   Motion + Lenis
+-   Three.js (lazy) + Canvas 2D
 -   Lucide React
 -   Zod
 -   Vercel deployment

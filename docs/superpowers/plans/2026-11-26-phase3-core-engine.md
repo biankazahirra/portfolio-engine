@@ -20,7 +20,7 @@
 - Konten pribadi tidak boleh di komponen shared.
 - Nomor telepon tidak masuk file mana pun.
 - Dependency hanya: Next, React, TypeScript, Tailwind, Zod, Lucide.
-- `framer-motion` tidak dipakai. CSS untuk transisi umum; GSAP + ScrollTrigger untuk judul per kata (ditambahkan kemudian atas permintaan owner).
+- `framer-motion` tidak dipakai. CSS untuk transisi umum; GSAP + ScrollTrigger untuk judul per kata dan vine, Motion untuk entrance/hover kartu, Lenis untuk smooth scroll, Three.js + Canvas 2D untuk bunga dan kelopak (ditambahkan kemudian atas permintaan owner). Implementasi akhir memakai `TitleReveal`, `CardMotion`, dan `gsap-core` agar jumlah Client Component tetap kecil.
 - Client Component hanya untuk toggle navigasi mobile.
 
 ## Review Focus

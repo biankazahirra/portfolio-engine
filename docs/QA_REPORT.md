@@ -80,3 +80,30 @@ Owner diminta:
 3. Mengirim portrait bila ingin placeholder diganti.
 
 **Langkah berikutnya setelah disetujui:** Phase 6 — Documentation & Release. Tidak ada push/deploy tanpa persetujuan terpisah.
+
+---
+
+## 7. Garden theme QA — 2026-11-27
+
+Objek: tema garden + motion baru, masih memakai content pilot yang sama.
+
+| Item | Hasil |
+|---|---|
+| Nav 5 tautan + active highlight | Benar — `aria-current` mengikuti IntersectionObserver; hero menghapus active |
+| Theme light/dark | Benar — toggle menulis `localStorage`, atribut `data-theme` dipakai sebelum paint |
+| Judul per kata | Benar — opacity 0 sebelum scroll → 1 setelah scroll; H1 langsung tampil |
+| Card entrance + hover | Benar — `translateY(16px)` → `none`; hover `translateY(-3px)` |
+| Batang tumbuh + bunga journal | Benar — `strokeDashoffset` 780/1000 saat scroll, bunga scale 0 → 1 |
+| Accordion experience | Benar — 6 `<details>`, ringkasan satu baris, 4 bullet saat dibuka |
+| Sertifikasi mekar | Benar — kelopak CSS skala 0.74 → 1.06 pada hover/fokus |
+| Bunga 3D | Benar di desktop ≥1024px; mobile memakai SVG statis (keputusan performa) |
+| Kelopak jatuh | Benar — Canvas 2D, 26 partikel desktop / 10 mobile, berhenti saat off-screen |
+| Mobile 390×844 | Overflow 0, menu 5 tautan 48px, journal rail kiri, tombol penuh lebar |
+| Console error | 0 |
+| Lighthouse a11y / BP / SEO | 1.00 / 1.00 / 1.00 di desktop dan mobile |
+| Lighthouse performance (mobile, throttle 4×) | 0.89–0.99 pada run hangat (median 0.94), FCP/LCP 0.9s, CLS 0. Run dingin lebih rendah karena inisialisasi browser |
+
+Perbaikan performa yang dilakukan: menggabungkan tujuh komponen `AnimatedTitle` menjadi satu `TitleReveal`, menggantikan 12 komponen `MotionItem` satu per satu dengan satu `CardMotion` yang memakai `animate` dari Motion, berbagi satu modul `gsap-core`, dan menunda Three.js sampai 500ms serta hanya pada layar ≥1024px.
+
+**Keputusan konten:** "5 organizations" dan "Big 4 firm" pada prompt tidak dipakai karena tidak didukung Section 6/CV. Hero memakai "Experience roles 6" (dari jumlah entri). Download CV diganti "Request CV" via email karena PDF memuat nomor telepon.
+

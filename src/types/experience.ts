@@ -3,5 +3,6 @@ export interface Experience {
   position: string;
   location?: string;
   period: string;
+  summary: string;
   responsibilities: string[];
 }

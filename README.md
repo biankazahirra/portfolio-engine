@@ -27,9 +27,9 @@ Node.js 20.9 atau lebih baru diperlukan (Next.js 16).
 
 ## Stack
 
-Next.js App Router · React · TypeScript · Tailwind CSS 4 · Zod · Lucide React.
+Next.js App Router · React · TypeScript · Tailwind CSS 4 · Zod · Lucide React · GSAP + ScrollTrigger · Motion · Lenis · Three.js · Canvas 2D.
 
-Tanpa backend, database, auth, CMS, atau dashboard. CSS untuk transisi umum, Lenis untuk smooth scroll, GSAP + ScrollTrigger untuk judul per kata, Motion untuk entrance dan hover card.
+Tanpa backend, database, auth, CMS, atau dashboard. Tema "annual report + ledger + garden": light/dark, bunga 3D lazy di desktop, kelopak jatuh via Canvas 2D, batang tumbuh saat scroll, kartu berbunga saat hover/fokus. GSAP untuk judul per kata dan batang, Motion untuk entrance dan hover kartu, Lenis untuk smooth scroll. Framer Motion tidak dipakai.
 
 ## Struktur singkat
 
@@ -37,12 +37,13 @@ Tanpa backend, database, auth, CMS, atau dashboard. CSS untuk transisi umum, Len
 src/
 ├── app/                  # layout, page, globals.css
 ├── components/
-│   ├── shared/           # button, heading, divider, metadata
-│   ├── layout/           # navigation, footer, container
-│   └── sections/         # section presentational
-├── config/               # portfolio, sections, site
+│   ├── shared/           # button, heading, metadata, bloom icon
+│   ├── layout/           # navigation, footer, container, smooth scroll
+│   ├── sections/         # section presentational
+│   └── motion/           # bloom scene, petals, vine, reveal managers
+├── config/               # portfolio, sections, site, SEO
 ├── content/fidela/       # konten pilot
-├── lib/validation/       # schema Zod
+├── lib/                  # motion core + schema Zod
 ├── templates/editorial/  # template + section registry
 ├── themes/accounting-editorial/
 └── types/                # tipe konten
@@ -65,8 +66,9 @@ Konten pribadi tidak pernah ditaruh di komponen shared. Warna, font, dan spacing
 
 ## Batasan diketahui
 
-- CV sengaja tidak dipasang karena memuat nomor telepon; menunggu izin tertulis.
-- Master spec `AI_INSTRUCTIONS/PORTFOLIO_ENGINE_MASTER_SPEC.md` masih memuat nomor telepon. Perlu disunting sebelum repo publik di-push.
+- CV sengaja tidak dipasang karena memuat nomor telepon; tombol "Request CV" memakai email.
+- Nomor telepon di master spec sudah diredaksi; belum ada izin publikasi.
+- Bunga 3D hanya dimuat di layar ≥1024px; di mobile memakai SVG statis agar performa tetap ringan.
 - Satu theme (`accounting-editorial`), satu template (`editorial`).
 - Tidak ada pengujian unit framework; verifikasi memakai typecheck, build, dan QA browser.
 

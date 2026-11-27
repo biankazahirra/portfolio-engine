@@ -1,5 +1,6 @@
 "use client";
 
+import { getGsap } from "@/lib/motion/gsap-core";
 import { useEffect } from "react";
 
 export function SmoothScroll() {
@@ -10,15 +11,11 @@ export function SmoothScroll() {
     let cleanup: (() => void) | undefined;
 
     (async () => {
-      const [{ default: Lenis }, gsapModule, { ScrollTrigger }] = await Promise.all([
+      const [{ default: Lenis }, { gsap, ScrollTrigger }] = await Promise.all([
         import("lenis"),
-        import("gsap"),
-        import("gsap/ScrollTrigger"),
+        getGsap(),
       ]);
       if (disposed) return;
-
-      const gsap = gsapModule.default;
-      gsap.registerPlugin(ScrollTrigger);
 
       const lenis = new Lenis({
         duration: 1.05,

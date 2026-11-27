@@ -45,7 +45,7 @@ Alias semantik:
 
 ## 3. Tipografi
 
-Font dimuat via `next/font/google`: Fraunces, DM Sans, IBM Plex Mono.
+Font dimuat via `next/font/google`: Fraunces, Inter, IBM Plex Mono.
 
 | Peran | Font | Ukuran (fluid) | Line-height | Tracking |
 |---|---|---|---|---|
@@ -53,10 +53,10 @@ Font dimuat via `next/font/google`: Fraunces, DM Sans, IBM Plex Mono.
 | Section H2 | Fraunces 500 | `clamp(1.875rem, 3.5vw, 2.75rem)` | 1.15 | `-0.01em` |
 | Entry H3 | Fraunces 500 | `clamp(1.25rem, 2vw, 1.5rem)` | 1.25 | 0 |
 | Eyebrow (mono) | IBM Plex Mono 500 | `0.75rem` | 1.4 | `0.14em`, uppercase |
-| Body | DM Sans 400 | `1rem` | 1.7 | 0 |
-| Lead | DM Sans 400 | `clamp(1.0625rem, 1.6vw, 1.25rem)` | 1.6 | 0 |
+| Body | Inter 400 | `1rem` | 1.7 | 0 |
+| Lead | Inter 400 | `clamp(1.0625rem, 1.6vw, 1.25rem)` | 1.6 | 0 |
 | Metadata | IBM Plex Mono 400 | `0.8125rem` | 1.5 | `0.04em` |
-| Small | DM Sans 400 | `0.875rem` | 1.6 | 0 |
+| Small | Inter 400 | `0.875rem` | 1.6 | 0 |
 
 Aturan: satu H1 per halaman. Setiap section punya satu H2. H3 hanya untuk entri di dalam section.
 
@@ -133,7 +133,7 @@ Mobile: satu kolom, teks lalu portrait, CTA full-width bertumpuk. Portrait tetap
 - Reverse kronologis sesuai config konten.
 - Desktop: grid `200px 1fr`; kiri periode mono gold uppercase, kanan konten.
 - Garis vertikal 1px gray di sela kolom, titik gold 6px di setiap entri.
-- Konten: H3 `position` + "at `organization`" dalam DM Sans, location mono, daftar tanggung jawab dengan bullet kotak kecil gold 4px.
+- Konten: H3 `position` + "at `organization`" dalam Inter, location mono, daftar tanggung jawab dengan bullet kotak kecil gold 4px.
 - Mobile: periode di atas judul, garis di tepi kiri konten.
 - **Semua tanggung jawab ditampilkan.** Tidak ada truncation/expandable di v1.
 
@@ -200,7 +200,7 @@ Mobile **bukan** layout web yang diperkecil. Di bawah 768px engine memakai hiera
 
 ## 9. Interaksi & motion
 
-- CSS untuk transisi umum; GSAP + ScrollTrigger untuk reveal judul per kata; Motion untuk entrance dan hover card (diminta owner setelah Phase 6). Framer Motion tetap tidak dipakai.
+- CSS untuk transisi umum; GSAP + ScrollTrigger untuk reveal judul per kata dan batang tumbuh; Motion untuk entrance dan hover card; Lenis untuk smooth scroll; Three.js lazy untuk bunga 3D desktop; Canvas 2D untuk kelopak jatuh (diminta owner setelah Phase 6). Framer Motion tetap tidak dipakai.
 - Transisi hover/focus: `150ms ease`.
 - Hero stagger fade-in saat load: `550ms ease-out`, delay 40–270ms.
 - Reveal saat scroll memakai `animation-timeline: view()` di dalam `@supports`; fallback tanpa animasi untuk browser yang tidak mendukung. Tidak ada scroll-jacking.

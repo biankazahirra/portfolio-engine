@@ -8,16 +8,15 @@ export const sectionLabels: Record<SectionId, string> = {
   education: "Education",
   organizations: "Organizations",
   certifications: "Certifications",
+  credentials: "Credentials",
   contact: "Contact",
 };
 
 export const sections: SectionConfig[] = [
   { id: "hero", enabled: true },
-  { id: "about", enabled: true, heading: "Professional Summary" },
-  { id: "experience", enabled: true, heading: "Professional Experience" },
+  { id: "about", enabled: true, heading: "About" },
+  { id: "experience", enabled: true, heading: "Experience" },
   { id: "expertise", enabled: true, heading: "Areas of Experience" },
-  { id: "education", enabled: true, heading: "Education" },
-  { id: "organizations", enabled: true, heading: "Organizational Experience" },
-  { id: "certifications", enabled: true, heading: "Certifications & Learning" },
+  { id: "credentials", enabled: true, heading: "Credentials" },
   { id: "contact", enabled: true, heading: "Contact" },
 ];

@@ -6,6 +6,7 @@ export type SectionId =
   | "education"
   | "organizations"
   | "certifications"
+  | "credentials"
   | "contact";
 
 export interface SectionConfig {

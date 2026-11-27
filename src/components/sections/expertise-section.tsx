@@ -1,10 +1,12 @@
 import { PageContainer } from "../layout/page-container";
-import { MotionItem } from "../shared/motion-item";
+import { BloomIcon } from "../shared/bloom-icon";
+import { MotionCard } from "../shared/motion-card";
 import { SectionHeading } from "../shared/section-heading";
+import type { ExpertiseArea } from "@/types/expertise";
 import type { SectionFrameProps } from "@/types/section";
 
 interface ExpertiseSectionProps extends SectionFrameProps {
-  areas: string[];
+  areas: ExpertiseArea[];
 }
 
 export function ExpertiseSection({ index, label, heading, areas }: ExpertiseSectionProps) {
@@ -14,15 +16,14 @@ export function ExpertiseSection({ index, label, heading, areas }: ExpertiseSect
         <SectionHeading index={index} label={label} title={heading} />
         <ul className="expertise-grid">
           {areas.map((area, position) => (
-            <MotionItem
-              key={area}
-              as="li"
-              className="expertise-item"
-              index={position}
-            >
-              <span className="expertise-index">{String(position + 1).padStart(2, "0")}</span>
-              <span className="expertise-name">{area}</span>
-            </MotionItem>
+            <MotionCard key={area.name} as="li" className="expertise-card">
+              <span className="expertise-card-top">
+                <span className="expertise-index">{String(position + 1).padStart(2, "0")}</span>
+                <BloomIcon className="expertise-bloom" />
+              </span>
+              <span className="expertise-name">{area.name}</span>
+              <span className="expertise-evidence">{area.evidence}</span>
+            </MotionCard>
           ))}
         </ul>
       </PageContainer>

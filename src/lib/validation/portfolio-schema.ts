@@ -14,6 +14,7 @@ const profileSchema = strictObject({
   portfolioReference: z.url().optional(),
   headline: z.string().optional(),
   summary: z.string().optional(),
+  about: z.string().optional(),
   portrait: z.string().optional(),
   portraitAlt: z.string().optional(),
   cvFile: z.string().optional(),
@@ -24,6 +25,7 @@ const experienceSchema = strictObject({
   position: z.string().min(1),
   location: z.string().optional(),
   period: z.string().min(1),
+  summary: z.string().min(1),
   responsibilities: z.array(z.string().min(1)),
 });
 
@@ -36,7 +38,12 @@ const educationSchema = strictObject({
 });
 
 const expertiseSchema = strictObject({
-  areas: z.array(z.string().min(1)),
+  areas: z.array(
+    strictObject({
+      name: z.string().min(1),
+      evidence: z.string().min(1),
+    }),
+  ),
 });
 
 const certificationSchema = strictObject({
@@ -65,6 +72,7 @@ const sectionSchema = strictObject({
     "education",
     "organizations",
     "certifications",
+    "credentials",
     "contact",
   ]),
   enabled: z.boolean(),

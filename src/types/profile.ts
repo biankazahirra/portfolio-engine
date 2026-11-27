@@ -7,6 +7,7 @@ export interface Profile {
   portfolioReference?: string;
   headline?: string;
   summary?: string;
+  about?: string;
   portrait?: string;
   portraitAlt?: string;
   cvFile?: string;

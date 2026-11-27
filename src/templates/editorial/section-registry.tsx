@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { AboutSection } from "@/components/sections/about-section";
 import { CertificationsSection } from "@/components/sections/certifications-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { CredentialsSection } from "@/components/sections/credentials-section";
 import { EducationSection } from "@/components/sections/education-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { ExpertiseSection } from "@/components/sections/expertise-section";
@@ -31,11 +32,20 @@ export const sectionRegistry: Record<SectionId, SectionRenderer> = {
         ? `View ${sectionLabels[target.id].toLowerCase()}`
         : "Explore portfolio";
 
+    const gpa = config.content.education.find((item) => item.gpa)?.gpa;
+    const hasBrevet = config.content.certifications.some((item) => item.title === "Brevet AB");
+    const metrics = [
+      ...(gpa ? [{ label: "GPA", value: gpa }] : []),
+      { label: "Experience roles", value: String(config.content.experience.length) },
+      ...(hasBrevet ? [{ label: "Certification", value: "Brevet AB" }] : []),
+    ];
+
     return (
       <HeroSection
         profile={config.profile}
         primaryCtaHref={target ? `#${target.id}` : "#main"}
         primaryCtaLabel={label}
+        metrics={metrics}
       />
     );
   },
@@ -54,6 +64,14 @@ export const sectionRegistry: Record<SectionId, SectionRenderer> = {
   ),
   certifications: ({ config, ...frame }) => (
     <CertificationsSection {...frame} items={config.content.certifications} />
+  ),
+  credentials: ({ config, ...frame }) => (
+    <CredentialsSection
+      {...frame}
+      education={config.content.education}
+      organizations={config.content.organizations}
+      certifications={config.content.certifications}
+    />
   ),
   contact: ({ config, ...frame }) => <ContactSection {...frame} profile={config.profile} />,
 };
