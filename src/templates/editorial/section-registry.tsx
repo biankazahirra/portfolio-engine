@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { StorySection } from "@/components/story/story-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { CertificationsSection } from "@/components/sections/certifications-section";
 import { ContactSection } from "@/components/sections/contact-section";
@@ -20,23 +21,25 @@ type SectionRenderer = (props: SectionRenderProps) => ReactNode;
 
 export const sectionRegistry: Record<SectionId, SectionRenderer> = {
   hero: ({ config }) => {
-    const hasExperience = config.sections.some(
-      (section) => section.id === "experience" && section.enabled,
-    );
-    const target = hasExperience
-      ? config.sections.find((section) => section.id === "experience")
-      : config.sections.find((section) => section.enabled && section.id !== "hero");
-    const label = hasExperience
-      ? "View experience"
-      : target
-        ? `View ${sectionLabels[target.id].toLowerCase()}`
-        : "Explore portfolio";
+    const target =
+      config.sections.find((section) => section.id === "story" && section.enabled) ??
+      config.sections.find((section) => section.id === "experience" && section.enabled) ??
+      config.sections.find((section) => section.enabled && section.id !== "hero");
+    const label =
+      target?.id === "story" || target?.id === "experience"
+        ? "View experience"
+        : target
+          ? `View ${sectionLabels[target.id].toLowerCase()}`
+          : "Explore portfolio";
 
     const gpa = config.content.education.find((item) => item.gpa)?.gpa;
     const hasBrevet = config.content.certifications.some((item) => item.title === "Brevet AB");
+    const keyRoles = config.content.experience.filter((item) =>
+      /intern|assistant/i.test(item.position),
+    ).length;
     const metrics = [
       ...(gpa ? [{ label: "GPA", value: gpa }] : []),
-      { label: "Experience roles", value: String(config.content.experience.length) },
+      { label: "Key roles", value: String(keyRoles) },
       ...(hasBrevet ? [{ label: "Certification", value: "Brevet AB" }] : []),
     ];
 
@@ -49,6 +52,9 @@ export const sectionRegistry: Record<SectionId, SectionRenderer> = {
       />
     );
   },
+  story: ({ config, ...frame }) => (
+    <StorySection {...frame} chapters={config.content.chapters} />
+  ),
   about: ({ config, ...frame }) => <AboutSection {...frame} profile={config.profile} />,
   experience: ({ config, ...frame }) => (
     <ExperienceSection {...frame} items={config.content.experience} />

@@ -117,5 +117,29 @@ Perbaikan performa yang dilakukan: menggabungkan tujuh komponen `AnimatedTitle` 
 
 Verifikasi ulang iframe 390×844: title reveal `opacity 1`, card `translateY(16px) → none`, bunga mekar, `strokeDashoffset` menurun saat scroll, nav aktif benar, console error 0.
 
+---
+
+## 8. Scrollytelling QA — 2026-11-27
+
+| Item | Hasil |
+|---|---|
+| Hero scan-ready | Benar — nama, headline, GPA 3.80, "Key roles 5", Brevet AB, Request CV tanpa scroll |
+| Tujuh chapter berurutan | Benar — Transaction → Journal → Audit → Ledger → Oversight → Reporting → Closing, lengkap dengan `Details` |
+| Teks nyata di HTML | Benar — judul, metadata, takeaway, dan seluruh bullet ada di DOM; scene SVG `aria-hidden` |
+| Vine + chapter dots | Benar — path terhubung ke progres story; tujuh dot dengan `aria-current` mengikuti chapter aktif |
+| Pinning | Benar — `pinSpacing` aktif, desktop `+=125%`, mobile `+=100%`; chapter dipasang malas saat masuk viewport |
+| Skip story | Benar — `pins` 7 → 0, hash `#at-a-glance`, `top: 92px`, at-a-glance berisi 6 kartu |
+| Mobile 390×844 | Benar — tanpa 3D (SVG statis), progress bar atas, dot sticky horizontal, overflow 0, menu berisi Skip story |
+| Reduced motion | Benar di kode — controller tidak berjalan, vine tampil penuh, tanpa pin/Lenis/canvas |
+| Light/dark | Benar — token sama seperti fase sebelumnya |
+| Console error | 0 |
+| Lighthouse a11y / BP / SEO | 1.00 / 1.00 / 1.00 |
+| Lighthouse performance mobile | Hangat 0.85–0.97 (median ~0.86), FCP/LCP ~1.1s, CLS 0. Run dingin bisa turun ke 0.75 karena inisialisasi Chrome |
+
+Optimasi: pinning tidak dibuat semua saat muat. IntersectionObserver memasang timeline chapter hanya saat chapter masuk viewport, sehingga jumlah `pin-spacer` awal 0 dan TBT turun dari ~2.600ms ke ~200–900ms pada run hangat.
+
+**Keputusan konten:** angka hero memakai "Key roles 5" (internship/assistant roles sesuai Section 6). Request CV menggantikan Download CV karena PDF memuat nomor telepon. Tidak ada klaim "Big 4" atau "5 organizations".
+
+
 **Keputusan konten:** "5 organizations" dan "Big 4 firm" pada prompt tidak dipakai karena tidak didukung Section 6/CV. Hero memakai "Experience roles 6" (dari jumlah entri). Download CV diganti "Request CV" via email karena PDF memuat nomor telepon.
 

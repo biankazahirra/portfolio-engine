@@ -36,9 +36,13 @@ Skala memakai `clamp`, dari 0.6875rem untuk label sampai 5.5rem untuk H1 desktop
 
 ## Struktur section
 
-Lima tautan nav: About, Experience, Expertise, Credentials, Contact. Credentials berisi Education, Organizations, Certifications sebagai sub-bagian. Gold rule → eyebrow mono bernomor `01 / About` → H2 serif → konten. Nomor dihitung dari section aktif tanpa hero.
+Nav minimal: Experience (`#story`), Credentials, Contact, Request CV, Skip story, theme toggle. Urutan section: hero → story → credentials → contact.
 
-Experience memakai journal rows: Period · Position & Organization · Contribution, dengan accordion native `<details>` dan ringkasan satu baris saat tertutup.
+Story memakai tujuh chapter siklus akuntansi: Transaction, Journal, Audit, Ledger, Oversight, Reporting, Closing the Books. Tiap chapter punya label mono `CH. 01 / TRANSACTION`, judul serif, metadata, satu _takeaway_ dari fakta yang ada, panel `Details` native, dan scene SVG dekoratif (`aria-hidden`). Teks chapter nyata di HTML, bukan di canvas.
+
+Satu vine melintang di sisi kiri desktop; di mobile jadi progress bar tipis di bawah header. Tujuh dot bunga di margin adalah tautan chapter dengan `aria-current`. `Skip story` menandai `data-story="skipped"`, mematikan pinning, dan melompat ke `#at-a-glance` (satu kartu per role).
+
+Credentials berisi Education, Organizations, Certifications sebagai sub-bagian. Gold rule → eyebrow mono bernomor → H2 serif → konten. Nomor dihitung dari section aktif tanpa hero.
 
 ## Komponen
 
@@ -65,7 +69,9 @@ Prinsip: halus, bermakna, ringan. Gerak memakai `transform` saja agar kontras te
 
 - Judul H1/H2 dirender per kata oleh `AnimatedTitle` (server). `TitleReveal` memakai satu instance GSAP + ScrollTrigger untuk semua judul: reveal saat masuk 88% viewport, stagger 80ms, durasi 550ms.
 - `CardMotion` memakai `animate` dari Motion untuk card: masuk naik 16px saat masuk viewport (stagger 50ms, maks 300ms), hover naik 3px.
-- `GrowingVine` menggambar batang SVG dengan `strokeDashoffset` dan ScrollTrigger `scrub`.
+- `StoryController` memakai `gsap.matchMedia()` untuk timeline desktop (`+=125%`) dan mobile (`+=100%`); `pin: true`, `scrub: 0.6`, `pinSpacing: true`. Chapter dipasang malas via IntersectionObserver saat masuk viewport. `ctx.revert()` membersihkan ScrollTrigger saat unmount atau `Skip story`.
+- `story-vine-path` dan progress bar mengikuti progres keseluruhan story lewat `ScrollTrigger.create({ onUpdate })`.
+- `GrowingVine` lama tetap dipakai untuk Experience bila section diaktifkan kembali.
 - `VineFlower` mekar via `FlowerMotion` (IntersectionObserver pada `.journal-item`, lalu menambah `.is-bloomed`). Memakai IO, bukan `animation-timeline: view()`, agar perilaku sama di Safari mobile dan Chrome. Bunga diamati lewat item induk karena bunga awalnya `scale(0)` sehingga ukurannya nol.
 - `PetalCanvas` menggambar 26 kelopak (10 di layar kecil), berhenti saat off-screen atau tab tidak aktif.
 - `BloomScene` memuat Three.js secara lazy di desktop ≥1024px setelah 500ms; bunga empat cincin kelopak, animasi `back.out`, mengikuti pointer dengan lerp, pixel ratio ≤2, render berhenti saat off-screen. WebGL tidak tersedia → SVG statis.

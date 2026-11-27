@@ -1,4 +1,5 @@
 import type { Certification } from "./certification";
+import type { Chapter } from "./chapter";
 import type { Education } from "./education";
 import type { Expertise } from "./expertise";
 import type { Experience } from "./experience";
@@ -18,6 +19,7 @@ export interface PortfolioConfig {
   sections: SectionConfig[];
   content: {
     experience: Experience[];
+    chapters: Chapter[];
     education: Education[];
     expertise: Expertise;
     organizations: Organization[];

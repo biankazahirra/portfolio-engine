@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
+import { SkipStory } from "../story/skip-story";
 import { ThemeToggle } from "../shared/theme-toggle";
 import { PageContainer } from "./page-container";
 
@@ -15,9 +16,11 @@ export interface NavigationItem {
 interface SiteNavigationProps {
   name: string;
   items: NavigationItem[];
+  cvHref: string;
+  cvLabel: string;
 }
 
-export function SiteNavigation({ name, items }: SiteNavigationProps) {
+export function SiteNavigation({ name, items, cvHref, cvLabel }: SiteNavigationProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
 
@@ -85,6 +88,10 @@ export function SiteNavigation({ name, items }: SiteNavigationProps) {
               ))}
             </nav>
 
+            <a className="nav-cv" href={cvHref}>
+              {cvLabel}
+            </a>
+            <SkipStory className="nav-skip" />
             <ThemeToggle />
 
             <button
@@ -112,6 +119,12 @@ export function SiteNavigation({ name, items }: SiteNavigationProps) {
               {item.label}
             </a>
           ))}
+          <a className="mobile-menu-link" href={cvHref}>
+            {cvLabel}
+          </a>
+          <div className="mobile-menu-skip">
+            <SkipStory />
+          </div>
         </nav>
       </PageContainer>
     </header>
