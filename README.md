@@ -6,8 +6,6 @@ Reusable, data-driven foundation untuk portfolio website. Satu codebase dikonfig
 
 Pilot pertama: **Fidela Andina — Accounting & Finance Portfolio**.
 
-Mode saat ini: **scrollytelling**. Hero tetap scan-ready; setelah hero, tujuh chapter mengikuti siklus akuntansi dengan satu tanaman sebagai indikator progres. `Skip story` mengubah halaman menjadi versi statis "At a glance" dan mematikan pinning.
-
 ## Status
 
 - Arsitektur, theme, template, dan komponen reusable: siap.
@@ -41,9 +39,8 @@ src/
 ├── components/
 │   ├── shared/           # button, heading, metadata, bloom icon
 │   ├── layout/           # navigation, footer, container, smooth scroll
-│   ├── sections/         # hero, credentials, contact
-│   ├── story/            # chapters, scenes, vine, dots, controller
-│   └── motion/           # bloom scene, petals, reveal managers
+│   ├── sections/         # section presentational
+│   └── motion/           # bloom scene, petals, vine, reveal managers
 ├── config/               # portfolio, sections, site, SEO
 ├── content/fidela/       # konten pilot
 ├── lib/                  # motion core + schema Zod
@@ -72,8 +69,6 @@ Konten pribadi tidak pernah ditaruh di komponen shared. Warna, font, dan spacing
 - CV sengaja tidak dipasang karena memuat nomor telepon; tombol "Request CV" memakai email.
 - Nomor telepon di master spec sudah diredaksi; belum ada izin publikasi.
 - Bunga 3D hanya dimuat di layar ≥1024px; di mobile memakai SVG statis agar performa tetap ringan.
-- Pinning chapter dibuat malas (IntersectionObserver saat chapter masuk viewport) agar performa awal tetap ringan.
-- CV tetap ditahan karena memuat nomor telepon; tombol memakai "Request CV" via email.
 - Satu theme (`accounting-editorial`), satu template (`editorial`).
 - Tidak ada pengujian unit framework; verifikasi memakai typecheck, build, dan QA browser.
 

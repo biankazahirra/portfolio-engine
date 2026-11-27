@@ -1,6 +1,5 @@
 import { sections } from "./sections.config";
 import { siteConfig } from "./site.config";
-import { chapters } from "@/content/fidela/chapters";
 import { certifications } from "@/content/fidela/certifications";
 import { education } from "@/content/fidela/education";
 import { experience } from "@/content/fidela/experience";
@@ -19,7 +18,6 @@ export const portfolioConfig: PortfolioConfig = {
   sections,
   content: {
     experience,
-    chapters,
     education,
     expertise,
     organizations,

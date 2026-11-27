@@ -30,15 +30,7 @@ export function EditorialTemplate({ config }: { config: PortfolioConfig }) {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <SiteNavigation
-        name={config.profile.name}
-        items={navigationItems}
-        cvHref={
-          config.profile.cvFile ??
-          `mailto:${config.profile.email}?subject=${encodeURIComponent("CV request — Fidela Andina")}`
-        }
-        cvLabel={config.profile.cvFile ? "Download CV" : "Request CV"}
-      />
+      <SiteNavigation name={config.profile.name} items={navigationItems} />
       <TitleReveal />
       <CardMotion />
       <FlowerMotion />

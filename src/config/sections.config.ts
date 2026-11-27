@@ -4,7 +4,6 @@ export const sectionLabels: Record<SectionId, string> = {
   hero: "Introduction",
   about: "About",
   experience: "Experience",
-  story: "Experience",
   expertise: "Expertise",
   education: "Education",
   organizations: "Organizations",
@@ -15,7 +14,9 @@ export const sectionLabels: Record<SectionId, string> = {
 
 export const sections: SectionConfig[] = [
   { id: "hero", enabled: true },
-  { id: "story", enabled: true, heading: "The Accounting Cycle" },
+  { id: "about", enabled: true, heading: "About" },
+  { id: "experience", enabled: true, heading: "Experience" },
+  { id: "expertise", enabled: true, heading: "Areas of Experience" },
   { id: "credentials", enabled: true, heading: "Credentials" },
   { id: "contact", enabled: true, heading: "Contact" },
 ];

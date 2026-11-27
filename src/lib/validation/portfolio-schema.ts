@@ -29,30 +29,6 @@ const experienceSchema = strictObject({
   responsibilities: z.array(z.string().min(1)),
 });
 
-const chapterSchema = strictObject({
-  id: z.string().min(1),
-  number: z.number().int().positive(),
-  label: z.string().min(1),
-  title: z.string().min(1),
-  meta: z.string().min(1),
-  takeaway: z.string().min(1),
-  scene: z.enum([
-    "sprout",
-    "journal",
-    "audit",
-    "ledger",
-    "oversight",
-    "reporting",
-    "closing",
-  ]),
-  details: z.array(
-    strictObject({
-      heading: z.string().min(1),
-      bullets: z.array(z.string().min(1)),
-    }),
-  ),
-});
-
 const educationSchema = strictObject({
   institution: z.string().min(1),
   location: z.string().optional(),
@@ -92,7 +68,6 @@ const sectionSchema = strictObject({
     "hero",
     "about",
     "experience",
-    "story",
     "expertise",
     "education",
     "organizations",
@@ -116,7 +91,6 @@ export const portfolioSchema = strictObject({
   sections: z.array(sectionSchema),
   content: strictObject({
     experience: z.array(experienceSchema),
-    chapters: z.array(chapterSchema),
     education: z.array(educationSchema),
     expertise: expertiseSchema,
     organizations: z.array(organizationSchema),

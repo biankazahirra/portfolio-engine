@@ -2,7 +2,6 @@ export type SectionId =
   | "hero"
   | "about"
   | "experience"
-  | "story"
   | "expertise"
   | "education"
   | "organizations"
