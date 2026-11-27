@@ -1299,20 +1299,18 @@
     }
   }
 
-  @keyframes flower-bloom {
-    from {
-      transform: scale(0) rotate(-18deg);
-    }
-    to {
-      transform: none;
-    }
+  .js .vine-flower {
+    transform: scale(0) rotate(-18deg);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  @supports (animation-timeline: view()) {
+  .js .vine-flower.is-bloomed {
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
     .vine-flower {
-      animation: flower-bloom 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-timeline: view();
-      animation-range: entry 20% cover 55%;
+      transform: none !important;
     }
   }
 }

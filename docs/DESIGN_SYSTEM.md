@@ -66,7 +66,7 @@ Prinsip: halus, bermakna, ringan. Gerak memakai `transform` saja agar kontras te
 - Judul H1/H2 dirender per kata oleh `AnimatedTitle` (server). `TitleReveal` memakai satu instance GSAP + ScrollTrigger untuk semua judul: reveal saat masuk 88% viewport, stagger 80ms, durasi 550ms.
 - `CardMotion` memakai `animate` dari Motion untuk card: masuk naik 16px saat masuk viewport (stagger 50ms, maks 300ms), hover naik 3px.
 - `GrowingVine` menggambar batang SVG dengan `strokeDashoffset` dan ScrollTrigger `scrub`.
-- `VineFlower` mekar via `animation-timeline: view()`; fallback menampilkan bunga final.
+- `VineFlower` mekar via `FlowerMotion` (IntersectionObserver pada `.journal-item`, lalu menambah `.is-bloomed`). Memakai IO, bukan `animation-timeline: view()`, agar perilaku sama di Safari mobile dan Chrome. Bunga diamati lewat item induk karena bunga awalnya `scale(0)` sehingga ukurannya nol.
 - `PetalCanvas` menggambar 26 kelopak (10 di layar kecil), berhenti saat off-screen atau tab tidak aktif.
 - `BloomScene` memuat Three.js secara lazy di desktop ≥1024px setelah 500ms; bunga empat cincin kelopak, animasi `back.out`, mengikuti pointer dengan lerp, pixel ratio ≤2, render berhenti saat off-screen. WebGL tidak tersedia → SVG statis.
 - Lenis smooth scroll (1.05s) disinkronkan lewat `gsap.ticker`; `anchors: true` menghormati `scroll-margin-top`.

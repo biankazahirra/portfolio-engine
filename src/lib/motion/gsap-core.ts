@@ -11,6 +11,11 @@ export function getGsap(): Promise<Core> {
       const gsap = module.default;
       const ScrollTrigger = plugin.ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+      document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
       return { gsap, ScrollTrigger };
     });
   }

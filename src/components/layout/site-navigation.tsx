@@ -1,7 +1,9 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import { ThemeToggle } from "../shared/theme-toggle";
 import { PageContainer } from "./page-container";
 
@@ -29,6 +31,12 @@ export function SiteNavigation({ name, items }: SiteNavigationProps) {
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [open]);
+
+  function onMobileLinkClick(event: MouseEvent<HTMLAnchorElement>, id: string) {
+    event.preventDefault();
+    flushSync(() => setOpen(false));
+    window.history.replaceState(null, "", `#${id}`);
+  }
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -99,7 +107,7 @@ export function SiteNavigation({ name, items }: SiteNavigationProps) {
               className="mobile-menu-link"
               href={`#${item.id}`}
               aria-current={active === item.id ? "location" : undefined}
-              onClick={() => setOpen(false)}
+              onClick={(event) => onMobileLinkClick(event, item.id)}
             >
               {item.label}
             </a>

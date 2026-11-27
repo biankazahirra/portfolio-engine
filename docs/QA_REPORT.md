@@ -106,5 +106,16 @@ Objek: tema garden + motion baru, masih memakai content pilot yang sama.
 
 Perbaikan performa yang dilakukan: menggabungkan tujuh komponen `AnimatedTitle` menjadi satu `TitleReveal`, menggantikan 12 komponen `MotionItem` satu per satu dengan satu `CardMotion` yang memakai `animate` dari Motion, berbagi satu modul `gsap-core`, dan menunda Three.js sampai 500ms serta hanya pada layar ≥1024px.
 
+### 7.1 Perbaikan scroll trigger mobile — 2026-11-27
+
+| Masalah | Perbaikan | Hasil |
+|---|---|---|
+| Klik menu mobile `#credentials` meleset ~185px di atas header | `onMobileLinkClick` melakukan `preventDefault`, `flushSync` menutup menu sebelum Lenis menghitung posisi, lalu `history.replaceState` memperbarui hash | `#credentials` berhenti pada `top: 80px` (header 65px + margin 15px) |
+| Bunga journal tidak mekar di Safari mobile karena `animation-timeline: view()` tidak didukung | `FlowerMotion` memakai IntersectionObserver pada `.journal-item`, bukan pada bunga yang awalnya `scale(0)` | Bunga item yang terlihat mendapat `.is-bloomed` dan `transform: none` |
+| Posisi trigger bergeser saat font selesai dimuat atau toolbar mobile berubah | `ScrollTrigger.config({ ignoreMobileResize: true })` + refresh pada `load` dan `document.fonts.ready` | Trigger tidak bergeser saat resize mobile |
+| Batang selesai terlalu lambat di layar sempit | Start/end mobile diubah ke `top 85%` / `bottom 88%` | Gambar batang mengikuti posisi bunga |
+
+Verifikasi ulang iframe 390×844: title reveal `opacity 1`, card `translateY(16px) → none`, bunga mekar, `strokeDashoffset` menurun saat scroll, nav aktif benar, console error 0.
+
 **Keputusan konten:** "5 organizations" dan "Big 4 firm" pada prompt tidak dipakai karena tidak didukung Section 6/CV. Hero memakai "Experience roles 6" (dari jumlah entri). Download CV diganti "Request CV" via email karena PDF memuat nomor telepon.
 

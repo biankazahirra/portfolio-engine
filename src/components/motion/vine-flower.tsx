@@ -4,6 +4,7 @@ export function VineFlower() {
   return (
     <svg
       className="vine-flower"
+      data-vine-flower=""
       viewBox="0 0 40 40"
       aria-hidden="true"
       focusable="false"

@@ -23,6 +23,7 @@ export function GrowingVine() {
       const { gsap } = await getGsap();
       if (disposed) return;
 
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
       const length = path.getTotalLength();
       gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
@@ -31,8 +32,8 @@ export function GrowingVine() {
         ease: "none",
         scrollTrigger: {
           trigger: svg.parentElement,
-          start: "top 78%",
-          end: "bottom 65%",
+          start: mobile ? "top 85%" : "top 78%",
+          end: mobile ? "bottom 88%" : "bottom 65%",
           scrub: 0.6,
         },
       });

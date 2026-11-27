@@ -1,6 +1,7 @@
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavigation } from "@/components/layout/site-navigation";
 import { CardMotion } from "@/components/motion/card-motion";
+import { FlowerMotion } from "@/components/motion/flower-motion";
 import { TitleReveal } from "@/components/motion/title-reveal";
 import { sectionLabels } from "@/config/sections.config";
 import type { PortfolioConfig } from "@/types/portfolio";
@@ -32,6 +33,7 @@ export function EditorialTemplate({ config }: { config: PortfolioConfig }) {
       <SiteNavigation name={config.profile.name} items={navigationItems} />
       <TitleReveal />
       <CardMotion />
+      <FlowerMotion />
 
       <main id="main">
         {enabledSections.map((section) => (
