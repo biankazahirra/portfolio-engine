@@ -1698,10 +1698,6 @@
   }
 
   @media (max-width: 767px) {
-    .nav-cv {
-      display: none;
-    }
-
     .story-vine {
       display: none;
     }
@@ -1734,15 +1730,9 @@
       max-width: 100%;
       padding: 8px var(--gutter);
       overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
       background: var(--color-bg);
       border-bottom: 1px solid var(--color-border);
       transform: none;
-    }
-
-    .chapter-dots::-webkit-scrollbar {
-      display: none;
     }
 
     .chapter-dot {

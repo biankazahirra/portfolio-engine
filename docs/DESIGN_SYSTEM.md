@@ -69,7 +69,7 @@ Prinsip: halus, bermakna, ringan. Gerak memakai `transform` saja agar kontras te
 
 - Judul H1/H2 dirender per kata oleh `AnimatedTitle` (server). `TitleReveal` memakai satu instance GSAP + ScrollTrigger untuk semua judul: reveal saat masuk 88% viewport, stagger 80ms, durasi 550ms.
 - `CardMotion` memakai `animate` dari Motion untuk card: masuk naik 16px saat masuk viewport (stagger 50ms, maks 300ms), hover naik 3px.
-- `StoryController` memakai `gsap.matchMedia()`: desktop memakai pin `+=125%` dengan `pinSpacing: true`; mobile tidak memakai pin (scene di-scrub saat chapter lewat viewport) agar tidak ada area kosong akibat pin dan performa tetap ringan. Keduanya `scrub: 0.6`. Chapter dipasang malas via IntersectionObserver saat mendekat viewport. `ctx.revert()` membersihkan ScrollTrigger saat unmount atau `Skip story`.
+- `StoryController` memakai `gsap.matchMedia()` untuk timeline desktop (`+=125%`) dan mobile (`+=100%`); `pin: true`, `scrub: 0.6`, `pinSpacing: true`. Chapter dipasang malas via IntersectionObserver saat masuk viewport. `ctx.revert()` membersihkan ScrollTrigger saat unmount atau `Skip story`.
 - `story-vine-path` dan progress bar mengikuti progres keseluruhan story lewat `ScrollTrigger.create({ onUpdate })`.
 - `GrowingVine` lama tetap dipakai untuk Experience bila section diaktifkan kembali.
 - `VineFlower` mekar via `FlowerMotion` (IntersectionObserver pada `.journal-item`, lalu menambah `.is-bloomed`). Memakai IO, bukan `animation-timeline: view()`, agar perilaku sama di Safari mobile dan Chrome. Bunga diamati lewat item induk karena bunga awalnya `scale(0)` sehingga ukurannya nol.
