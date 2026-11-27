@@ -20,10 +20,10 @@ interface Ring {
 }
 
 const RINGS: Ring[] = [
-  { count: 3, radius: 1.62, scale: 1.15, tilt: 1.05, z: -0.32, color: LEAF, offset: 0.2 },
-  { count: 8, radius: 1.48, scale: 0.98, tilt: 0.62, z: -0.04, color: PETAL, offset: 0 },
-  { count: 7, radius: 1.14, scale: 0.8, tilt: 0.48, z: 0.14, color: PETAL_LIGHT, offset: 0.28 },
-  { count: 6, radius: 0.84, scale: 0.62, tilt: 0.36, z: 0.28, color: PETAL_SOFT, offset: 0.55 },
+  { count: 5, radius: 1.55, scale: 0.95, tilt: 1.1, z: -0.35, color: LEAF, offset: 0.15 },
+  { count: 9, radius: 1.48, scale: 0.95, tilt: 0.55, z: -0.05, color: PETAL, offset: 0 },
+  { count: 8, radius: 1.15, scale: 0.78, tilt: 0.42, z: 0.14, color: PETAL_LIGHT, offset: 0.22 },
+  { count: 7, radius: 0.85, scale: 0.6, tilt: 0.3, z: 0.28, color: PETAL_SOFT, offset: 0.45 },
 ];
 
 export default function BloomCanvas() {
@@ -53,8 +53,8 @@ export default function BloomCanvas() {
         if (disposed) return;
 
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-        camera.position.set(0, 0, 7.2);
+        const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+        camera.position.set(0, 0, 10);
 
         const renderer = new THREE.WebGLRenderer({
           alpha: true,
@@ -67,15 +67,16 @@ export default function BloomCanvas() {
         renderer.domElement.className = "bloom-webgl";
         mount.appendChild(renderer.domElement);
 
-        scene.add(new THREE.AmbientLight(0xffffff, 1.25));
-        const key = new THREE.DirectionalLight(0xffffff, 1.5);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.78));
+        const key = new THREE.DirectionalLight(0xffffff, 1.85);
         key.position.set(3, 4, 6);
         scene.add(key);
-        const fill = new THREE.DirectionalLight(0xffe9d6, 0.55);
+        const fill = new THREE.DirectionalLight(0xffe9d6, 0.38);
         fill.position.set(-4, -2, 3);
         scene.add(fill);
 
         const flower = new THREE.Group();
+        flower.scale.setScalar(0.82);
         flower.rotation.set(0.12, 0, -0.14);
         scene.add(flower);
 
@@ -103,7 +104,7 @@ export default function BloomCanvas() {
             const petal = new THREE.Mesh(geometry, material(ring.color));
             petal.position.set(ring.radius, 0, ring.z);
             petal.rotation.x = ring.tilt;
-            petal.scale.set(ring.scale * 1.2, ring.scale * 0.5, ring.scale * 0.22);
+            petal.scale.set(ring.scale * 1.05, ring.scale * 0.42, ring.scale * 0.16);
             petal.userData.base = petal.scale.clone();
             petal.scale.set(0.001, 0.001, 0.001);
 
@@ -114,16 +115,28 @@ export default function BloomCanvas() {
         });
 
         const center = new THREE.Mesh(
-          new THREE.SphereGeometry(0.44, 32, 24),
+          new THREE.SphereGeometry(0.4, 32, 24),
           material(CENTER),
         );
         center.position.z = 0.58;
-        center.scale.set(1, 1, 0.68);
+        center.scale.set(1, 1, 0.78);
         center.userData.base = center.scale.clone();
         center.scale.set(0.001, 0.001, 0.001);
         flower.add(center);
 
-        const all = [...petals, center];
+        const stamenGeometry = new THREE.SphereGeometry(0.055, 12, 8);
+        const stamens: import("three").Mesh[] = [];
+        for (let index = 0; index < 10; index += 1) {
+          const angle = (index / 10) * Math.PI * 2;
+          const stamen = new THREE.Mesh(stamenGeometry, material(0xd8a32e));
+          stamen.position.set(Math.cos(angle) * 0.26, Math.sin(angle) * 0.26, 0.88);
+          stamen.userData.base = stamen.scale.clone();
+          stamen.scale.set(0.001, 0.001, 0.001);
+          flower.add(stamen);
+          stamens.push(stamen);
+        }
+
+        const all = [...petals, center, ...stamens];
 
         if (reduced) {
           all.forEach((mesh) => {
@@ -214,6 +227,7 @@ export default function BloomCanvas() {
           window.removeEventListener("pointermove", onPointer);
           document.removeEventListener("visibilitychange", onVisibility);
           geometry.dispose();
+          stamenGeometry.dispose();
           materials.forEach((entry) => entry.dispose());
           center.geometry.dispose();
           renderer.dispose();

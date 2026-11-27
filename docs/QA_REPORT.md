@@ -97,6 +97,7 @@ Objek: tema garden + motion baru, masih memakai content pilot yang sama.
 | Accordion experience | Benar — 6 `<details>`, ringkasan satu baris, 4 bullet saat dibuka |
 | Sertifikasi mekar | Benar — kelopak CSS skala 0.74 → 1.06 pada hover/fokus |
 | Bunga 3D | Benar di desktop ≥1024px; mobile memakai SVG statis (keputusan performa) |
+| Perbaikan bunga 3D | Kelopak tidak lagi terpotong — kamera dijauhkan (z=10, fov 32), bloom diskalakan 0.82, daun dan kelopak diperkecil, pencahayaan disetel untuk bayangan |
 | Kelopak jatuh | Benar — Canvas 2D, 26 partikel desktop / 10 mobile, berhenti saat off-screen |
 | Mobile 390×844 | Overflow 0, menu 5 tautan 48px, journal rail kiri, tombol penuh lebar |
 | Console error | 0 |
