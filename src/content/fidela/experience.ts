@@ -16,7 +16,7 @@ export const experience: Experience[] = [
   },
   {
     organization: "Otoritas Jasa Keuangan (OJK)",
-    position: "Intern",
+    position: "Finance Intern",
     location: "Jakarta, Indonesia",
     period: "May 2025",
     summary: "Comparative financial statement analysis and disclosure compliance review.",
